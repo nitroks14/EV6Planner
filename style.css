@@ -1,0 +1,6 @@
+body {font-family: Arial, sans-serif;margin: 0;padding: 0;background: #f9f9f9;}
+main {max-width: 600px;margin: auto;padding: 20px;}
+label {display: block;margin-bottom: 10px;}
+input, select, button {width: 100%;padding: 8px;margin-top: 5px;}
+button {background: #0ea5e9;color: white;border: none;cursor: pointer;}
+#result {margin-top: 20px;background: #fff;padding: 15px;border-radius: 8px;}

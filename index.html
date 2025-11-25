@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang='fr'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Planificateur Recharge EV6</title>
+  <link rel='manifest' href='manifest.json'>
+  <link rel='stylesheet' href='style.css'>
+</head>
+<body>
+  <main>
+    <h1>Planificateur Recharge – Kia EV6</h1>
+    <form id='planner-form'>
+      <label>SoC départ (%)<input type='number' id='socStart' min='1' max='100' value='60'></label>
+      <label>SoC minimum retour (%)<input type='number' id='socMin' min='1' max='80' value='25'></label>
+      <label>Horizon
+        <select id='horizon'>
+          <option value='1d'>1 jour</option>
+          <option value='2d'>2 jours</option>
+          <option value='3d'>3 jours</option>
+          <option value='1w'>1 semaine</option>
+        </select>
+      </label>
+      <button type='submit'>Planifier</button>
+    </form>
+    <section id='result'></section>
+  </main>
+  <script src='app.js'></script>
+</body>
+</html>
