@@ -1,30 +1,77 @@
+
 <!DOCTYPE html>
-<html lang='fr'>
+<html lang="fr">
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <title>Planificateur Recharge EV6</title>
-  <link rel='manifest' href='manifest.json'>
-  <link rel='stylesheet' href='style.css'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🔌 Planificateur Recharge EV6</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main>
-    <h1>Planificateur Recharge – Kia EV6</h1>
-    <form id='planner-form'>
-      <label>SoC départ (%)<input type='number' id='socStart' min='1' max='100' value='60'></label>
-      <label>SoC minimum retour (%)<input type='number' id='socMin' min='1' max='80' value='25'></label>
-      <label>Horizon
-        <select id='horizon'>
-          <option value='1d'>1 jour</option>
-          <option value='2d'>2 jours</option>
-          <option value='3d'>3 jours</option>
-          <option value='1w'>1 semaine</option>
-        </select>
-      </label>
-      <button type='submit'>Planifier</button>
-    </form>
-    <section id='result'></section>
+  <header class="app-header">
+    <h1>🔌 Planificateur Recharge – Kia EV6</h1>
+    <p class="subtitle">Planifie tes recharges selon ton agenda Outlook, avec bornes à ≤ 300 m et priorité DC ≥ 150 kW.</p>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>✉️ Connexion Outlook</h2>
+      <p id="ms-status">Non connecté</p>
+      <div class="row">
+        <button id="btn-login" class="btn primary">Se connecter</button>
+        <button id="btn-logout" class="btn" disabled>Se déconnecter</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>⚙️ Paramètres de départ</h2>
+      <form id="planner-form">
+        <div class="grid-2">
+          <label>SoC départ (%)<input type="number" id="socStart" min="1" max="100" value="60" /></label>
+          <label>SoC minimum retour (%)<input type="number" id="socMin" min="1" max="80" value="25" /></label>
+        </div>
+        <label>Horizon
+          <select id="horizon">
+            <option value="1d">1 jour</option>
+            <option value="2d">2 jours</option>
+            <option value="3d">3 jours</option>
+            <option value="1w">1 semaine</option>
+          </select>
+        </label>
+        <details class="details">
+          <summary>Options avancées</summary>
+          <div class="grid-2">
+            <label>Conso moyenne (kWh/100 km)<input type="number" id="consumption" min="10" max="30" value="20" /></label>
+            <label>Puissance DC cible (kW)<input type="number" id="dcPower" min="50" max="350" value="180" /></label>
+          </div>
+        </details>
+        <button type="submit" class="btn primary">Planifier</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>🗓️ Événements Outlook</h2>
+      <div id="events" class="list"></div>
+    </section>
+
+    <section class="card">
+      <h2>⚡ Stratégie de recharge</h2>
+      <div id="result" class="list"></div>
+    </section>
+
+    <section class="card">
+      <h2>🤖 Conseil IA</h2>
+      <div id="ai" class="ai-box">Connecte-toi et lance une planification pour obtenir des recommandations.</div>
+    </section>
   </main>
-  <script src='app.js'></script>
+
+  <footer class="app-footer">
+    <small>Terminologie : les contraintes personnelles sont affichées comme « Obligation familiale ».</small>
+  </footer>
+
+  <!-- MSAL (CDN) -->
+  <script src="https://alcdn.msauth.net/browser/2.37.0/js/msal-browser.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

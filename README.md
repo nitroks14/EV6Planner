@@ -1,30 +1,19 @@
-# Planificateur Recharge Kia EV6
+
+# Planificateur Recharge Kia EV6 — v2
 
 ## ✅ Fonctionnalités
-- Formulaire SoC initial, SoC minimum, horizon (1j/2j/3j/1 semaine)
-- Planification avec règles: borne ≤300m, priorité DC ≥150kW, AC si DC absente
-- Intégration OpenChargeMap pour bornes réelles
-- IA intégrée via HuggingFace API
-- PWA utilisable sur iPhone
+- UI améliorée (design sombre, cartes)
+- Connexion Outlook via Microsoft Graph
+- Recherche bornes via OpenChargeMap
+- IA HuggingFace pour recommandations
 
-## 680 Déploiement sur GitHub Pages
-1. Crée un repo GitHub et push ces fichiers.
-2. Active GitHub Pages (Settings → Pages → Branch main).
-3. Accède à https://<ton-user>.github.io/<repo>.
+## 🚀 Déploiement
+1. Push sur GitHub
+2. Activer GitHub Pages
+3. Ajouter à l'écran d'accueil sur iPhone
 
-## 511 Configuration IA (HuggingFace)
-1. Crée un compte: https://huggingface.co/join
-2. Va dans Settings → Access Tokens → New Token (Read).
-3. Copie la clé et remplace `TA_CLE_API_ICI` dans app.js.
-4. Modèle recommandé: Mistral-7B-Instruct-v0.1
-   API URL: https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1
+## 🔐 Configuration
+- Client ID Azure dans app.js
+- Clé HuggingFace dans app.js
 
-## 310 Configuration OpenChargeMap
-- API URL: https://api.openchargemap.io/v3/poi
-- Paramètres: latitude, longitude, distance=0.3, maxresults=5, minpowerkw=150
-- Ajoute ta clé API si nécessaire (OpenChargeMap est gratuit mais peut demander un token).
-
-## ✅ Utilisation
-- Ouvre la webapp sur iPhone, ajoute à l'écran d'accueil.
-- Saisis SoC départ, SoC min retour, horizon.
-- Clique Planifier → IA propose stratégie optimisée avec bornes réelles.
+⚠️ Microsoft Entra ID (Azure AD) est inclus dans la licence Microsoft 365 Entreprise. Si ton tenant ne permet pas l'enregistrement d'applications, il faut demander à ton DSI.
